@@ -1,0 +1,47 @@
+<div class="panel-body">
+  <div class="page-header">
+    <h1>Users <br /><small>List of all users in the system.</small></h1>
+  </div>
+</div>
+<div class="panel-body" id="users-content">
+  ...
+</div>
+
+<script type="text/template" class="template" id="tpl-users">
+  <div>
+    <table class="table table-striped" id="table">
+      <tr>
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th> </th>
+      </tr>
+      <% _.each(data, function(row, i) { %>
+        <tr class="x-with-path" data-path="#user/!/<%=row.get('id')%>">
+          <td>
+            <%= row.get('name') %>
+          </td>
+          <td>
+            <%= row.get('birthDate') %>
+          </td>
+          <td>
+            <%= calcAge(row.get('birthDate')) %>
+          </td>
+          <td>
+            <%= row.get('city') %>
+          </td>
+          <td>
+            <%= row.get('email') %>
+          </td>
+          <td>
+            <%= row.get('phoneNumber') %>
+          </td>
+          <td><button class="btn btn-xs btn-link"><i class="glyphicon glyphicon-align-justify" /></button> <button class="btn btn-xs btn-link"><i class="glyphicon glyphicon-remove" /></button></td>
+        </tr>
+        <%});%>
+    </table>
+  </div>
+</script>
